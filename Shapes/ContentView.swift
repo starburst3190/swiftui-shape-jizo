@@ -12,15 +12,16 @@ struct ContentView: View {
         ZStack {
             Color.mint
                 .ignoresSafeArea()
-            // 地藏的手
+            
+            // 地藏的袖子-左
             Rectangle()
                 .trim(from: 0.5, to: 1)
                 .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
                 .stroke(.black)
-                .frame(width: 30, height: 20)
-                .offset(x: 42, y: 8)
+                .frame(width: 30, height: 30)
                 .rotationEffect(.degrees(50))
-            
+                .offset(x: 23, y: 25)
+                            
             // 地藏身體
             Rectangle()
                 .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
@@ -28,13 +29,91 @@ struct ContentView: View {
                 .frame(width: 15, height: 55)
                 .offset(x: 25, y: 40)
             
+            // 地藏的袖子-右
+            Ellipse()
+                .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
+                .stroke(.black)
+                .frame(width: 5, height: 30)
+                .scaleEffect(x: -1)
+                .offset(x: 32, y: 24)
+            
+            // 地藏領巾
+            Circle()
+                .fill(.red)
+                .stroke(.black)
+                .frame(width: 12)
+                .offset(x: 24, y: 13)
+            
             // 地藏的頭
             Ellipse()
                 .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
                 .stroke(.black)
                 .frame(width: 30, height: 25)
-                .offset(x: 25, y: 10)
+                .offset(x: 25, y: 0)
             
+            // 地藏五官
+            // 1. 眼睛
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: 0))
+                p.addLine(to: CGPoint(x: -7, y: 1))
+            }
+            .stroke(.black, lineWidth: 1.5)
+            .offset(x: 252, y: 315)
+            
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: 0))
+                p.addLine(to: CGPoint(x: -8, y: 1.5))
+            }
+            .stroke(.black, lineWidth: 1.5)
+            .offset(x: 265, y: 313)
+            
+            // 2. 嘴巴
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: 0))
+                p.addQuadCurve(to: CGPoint(x: -6, y: 1.5),
+                               control: CGPoint(x: -1, y: 0))
+            }
+            .stroke(.black, lineWidth: 1.5)
+            .offset(x: 259, y: 323)
+            // End of 地藏五官
+            
+            // 槍
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: -5))
+                p.addLine(to: CGPoint(x: -35, y: 5))
+                p.addLine(to: CGPoint(x: -30, y: 30))
+                p.addLine(to: CGPoint(x: -18, y: 25))
+                p.addLine(to: CGPoint(x: -20, y: 15))
+                p.addLine(to: CGPoint(x: -16, y: 14))
+                p.addLine(to: CGPoint(x: -10, y: 40))
+                p.addLine(to: CGPoint(x: -2, y: 37))
+                p.addLine(to: CGPoint(x: -8, y: 12))
+                p.addLine(to: CGPoint(x: -3, y: 10))
+                p.addLine(to: CGPoint(x: 3, y: 20))
+                p.addLine(to: CGPoint(x: 7, y: 18))
+                p.addLine(to: CGPoint(x: 2, y: 8))
+                p.addLine(to: CGPoint(x: 6, y: 6))
+                p.addLine(to: CGPoint(x: 3, y: 0))
+                p.closeSubpath()
+            }
+            .fill(Color(red: 0.3, green: 0.3, blue: 0.3))
+            .stroke(.black)
+            .offset(x: 233, y: 333)
+            
+            // 地藏的手-左
+            Capsule()
+                .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
+                .stroke(.black)
+                .frame(width: 4, height: 10)
+                .rotationEffect(.degrees(35))
+                .offset(x: 3, y: 24)
+            
+            // 地藏的手-右
+            Circle()
+                .fill(Color(red: 0.8, green: 0.8, blue: 0.8))
+                .stroke(.black)
+                .frame(width: 6)
+                .offset(x: 28, y: 21)
 
             // 籃子
             Path { p in
@@ -101,12 +180,12 @@ struct ContentView: View {
             // 領巾
             Path { p in
                 p.move(to: CGPoint(x: -10, y: -5))
-                p.addQuadCurve(to: CGPoint(x: -10, y: 20),
+                p.addQuadCurve(to: CGPoint(x: -10, y: 15),
                                control: CGPoint(x: -15, y: 10))
                 p.addQuadCurve(to: CGPoint(x: 15, y: 20),
                            control: CGPoint(x: 0, y: 25))
                 p.addQuadCurve(to: CGPoint(x: -10, y: -5),
-                           control: CGPoint(x: -10, y: 15))
+                           control: CGPoint(x: -10, y: 10))
                 p.closeSubpath()
             }
             .fill(Color(red: 100/255, green: 100/255, blue: 180/255))
@@ -218,7 +297,6 @@ struct ContentView: View {
             .stroke(.black)
             .offset(x: 202, y: 366)
             
-            
             // 斗笠
             Hat()
                 .fill(.strawHat)
@@ -236,11 +314,24 @@ struct ContentView: View {
             }
             .fill(.white)
             .stroke(.black)
-            .offset(x: 245, y: 360)
+            .offset(x: 242, y: 362)
+            
+            // 籃子背帶
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: 0))
+                p.addQuadCurve(to: CGPoint(x: 10, y: 40),
+                               control: CGPoint(x: -10, y: 10))
+                p.addQuadCurve(to: CGPoint(x: 0, y: 0),
+                           control: CGPoint(x: -20, y: 15))
+                p.closeSubpath()
+            }
+            .fill(.strawHat)
+            .stroke(.black)
+            .offset(x: 265, y: 405)
             
             // 貓手
             Path { p in
-                p.move(to: CGPoint(x: 0, y: 0))
+                p.move(to: CGPoint(x: -5, y: 0))
                 p.addQuadCurve(to: CGPoint(x: -15, y: 10),
                                control: CGPoint(x: -7.5, y: 10))
                 p.addQuadCurve(to: CGPoint(x: -15, y: 15),
@@ -252,6 +343,18 @@ struct ContentView: View {
             .fill(.white)
             .stroke(.black)
             .offset(x: 275, y: 410)
+            
+            // 肩膀乾草
+            Path { p in
+                p.move(to: CGPoint(x: 0, y: 0))
+                p.addQuadCurve(to: CGPoint(x: 50, y: 15), control: CGPoint(x: 20, y: -35))
+                p.addQuadCurve(to: CGPoint(x: 25, y: 12), control: CGPoint(x: 33, y: 20))
+                p.addQuadCurve(to: CGPoint(x: 5, y: 0), control: CGPoint(x: -5, y: 35))
+                p.closeSubpath()
+            }
+            .fill(.strawCape)
+            .stroke(.black)
+            .offset(x: 245, y: 396)
             
             // 火光
             Star()
