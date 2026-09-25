@@ -19,8 +19,8 @@
     <th width="50%">SwiftUI 成品</th>
   </tr>
   <tr>
-    <td align="center"><img src="Documentation/Images/reference.PNG" alt="貓咪大戰爭遊戲內的超級斗笠地藏" width="520"></td>
-    <td align="center"><img src="Documentation/Images/Jizo_Basic.png" alt="用 SwiftUI 形狀畫出的超級斗笠地藏" width="260"></td>
+    <td align="center"><img src="Documentation/Images/Reference.png" alt="貓咪大戰爭遊戲內的超級斗笠地藏" width="520"></td>
+    <td align="center"><img src="Documentation/Images/JizoBasic.png" alt="用 SwiftUI 形狀畫出的超級斗笠地藏" width="260"></td>
   </tr>
 </table>
 
